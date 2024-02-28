@@ -13,7 +13,8 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none;    
+    text-decoration: none; 
+    list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
@@ -617,9 +618,14 @@ textarea {
     border-radius: 50%;
 }
 
-.banner .social-media a:hover {
+.banner .social-media a:hover, 
+.banner .btn-container a:hover {
     background-color: var(--grayColor);
     color: var(--colorWhite);
+}
+
+.banner .btn-container a{
+    color: var(--colorBlack);
 }
 
 .banner .btn-container {
