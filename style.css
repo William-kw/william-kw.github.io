@@ -665,7 +665,8 @@ textarea {
 
 /* ============================= ABOUT STYLES ============================= */
 .about-img {
-    height: 500px;
+    height: 400px;
+    width: 500px;
     border-top: 20px solid var(--primaryColor);
     border-right: 20px solid var(--primaryColor);
 }
