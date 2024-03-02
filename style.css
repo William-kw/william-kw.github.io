@@ -50,7 +50,7 @@ body {
 section {
     min-height: 100vh;
     width: 100%;
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .container {
@@ -354,6 +354,10 @@ textarea {
     flex-basis: 38%;
 }
 
+.c-black {
+    color: var(--colorBlack);
+}
+
 /* ============================= LOADER STYLE ============================= */
 .loading {
     position: fixed;
@@ -419,6 +423,19 @@ textarea {
     align-items: center;
     justify-content: space-between;
     height: 80px;
+}
+
+.scroll {
+    position: fixed;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    height: 5px;
+    width: 110%;
+    z-index: 10;
+    top: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+    background: var(--primaryColor);
+    transition: transform 0.2s ease-out;
 }
 
 .logo {
@@ -519,7 +536,7 @@ textarea {
 .contact-right-bar.show-contact {
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(0);
+    transform: translateX(5px);
 }
 
 .contact-right-bar .contact-header {
@@ -574,7 +591,6 @@ textarea {
 /* ============================= BANNER STYLE ============================= */
 
 .banner {
-    padding-top: 100px;
     padding-bottom: 50px;
     background: url('/images/banner-bg.jpg');
     background-position: center;
@@ -588,15 +604,23 @@ textarea {
     text-transform: uppercase;
     line-height: 1.2;
     word-break: normal;
-    margin: 15px 0;
+    margin-top: -60px;
 }
 
-.banner .banner-heading span {
+.banner .banner-heading span:first-child {
+    font-size: 30px;
+}
+
+.banner .banner-heading span:last-child {
     color: var(--primaryColor);
     font-size: 35px;
     display: flex;
     flex-wrap: nowrap;
     transition: all .3s ease-in-out;
+}
+
+.banner p{
+    margin-top: 20px;
 }
 
 .banner .social-media{
@@ -653,8 +677,8 @@ textarea {
 }
 
 .banner .banner-img {
-    height: 450px;
-    padding: 25px;
+    height: 500px;
+    padding: 30px;
 }
 
 /* ============================= SERVICES STYLES ============================= */
@@ -670,6 +694,8 @@ textarea {
 
 .services .service-icon {
     position: absolute;
+    padding: 0 15px;
+    background-color: var(--bodyBg);
     left: 50%;
     top: -10%;
     transform: translateX(-50%);
@@ -701,6 +727,8 @@ textarea {
     border-top: 20px solid var(--primaryColor);
     border-right: 20px solid var(--primaryColor);
 }
+
+.about 
 
 /* ============================= EDUCATION & SKILL STYLES ============================= */
 .education-skill {
@@ -1013,9 +1041,6 @@ textarea {
     }
 
     /* ABOUT RESPONSIVE  */
-    .about {
-        padding-top: 60px;
-    }
     .about-img {
         height: 400px;
         width: 100%;
