@@ -10,10 +10,10 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   scrollIndicator = document.querySelector(".scroll");
 
 // scroll incator
-const obsever = new IntersectionObserver(handleIntersect)
-obsever.observe(content)
-function handleIntersect(entries) {
-  const el = entries[0]
+const obseveur = new IntersectionObserver(handleIntersect)
+obseveur.observe(content)
+function handleIntersect(entree) {
+  const el = entree[0]
   if (el.isIntersecting) {
     window.addEventListener("scroll", indicatorAnimation)
   } else {
@@ -22,8 +22,8 @@ function handleIntersect(entries) {
 }
 function indicatorAnimation() {
   if (window.scrollY > content.offsetTop) {
-    const percentage = ((window.scrollY - content.offsetTop) / content.scrollHeight * 100).toFixed(2)
-    scrollIndicator.style.transform = `scaleX(${(percentage / 100)})`
+    const pourcentage = ((window.scrollY - content.offsetTop) / content.scrollHeight * 100).toFixed(2)
+    scrollIndicator.style.transform = `scaleX(${(pourcentage / 100)})`
   } else {
     scrollIndicator.style.transform = "scaleX(0)"
   }
