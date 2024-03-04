@@ -7,7 +7,9 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   contactOverlay = document.querySelector(".contact-overlay"),
   loading = document.querySelector(".loading"),
   content = document.querySelector(".content"),
-  scrollIndicator = document.querySelector(".scroll");
+  scrollIndicator = document.querySelector(".scroll"),
+  go = document.querySelector(".totop .go"),
+  banner = document.querySelector(".banner");
 
 // scroll incator
 const obseveur = new IntersectionObserver(handleIntersect)
@@ -27,6 +29,12 @@ function indicatorAnimation() {
   } else {
     scrollIndicator.style.transform = "scaleX(0)"
   }
+}
+
+// go to top 
+window.onscroll = ()=> {
+  const taille = banner.offsetHeight
+  go.classList.toggle("show", window.scrollY > taille)
 }
 
 // toggle nav links

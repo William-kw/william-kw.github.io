@@ -588,6 +588,32 @@ textarea {
     color: var(--colorWhite);
 }
 
+.totop {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+
+.totop .go {
+    background: var(--primaryColor);
+    color: var(--colorBlack);
+    padding: 7px 10px;
+    font-size: 25px;
+    font-weight: 600;
+    display: none;
+    border: none;
+    border-radius: 5px;
+    transition: .8s ease-out;
+}
+
+.totop .go:hover{
+    opacity: 0.7;
+    transition: .8s;
+}
+
+.totop .go.show {
+    display: block;
+}
 /* ============================= BANNER STYLE ============================= */
 
 .banner {
