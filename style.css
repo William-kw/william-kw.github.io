@@ -8,6 +8,7 @@
     --bodyColor: #a2a2a2;
     --colorWhite: #fff;
     --colorBlack: #02050a;
+    --colorDanger: #f31818;
 }
 
 * {
@@ -250,6 +251,10 @@ textarea {
     outline: none;
 }
 
+.danger {
+    border: 1px solid var(--colorDanger);
+}
+
 textarea {
     resize: none;
     height: 200px;
@@ -331,6 +336,9 @@ textarea {
     flex-wrap: wrap;
 }
 
+.f-30 {
+    font-size: 30px;
+}
 
 .col-2 {
     flex-basis: 47%;
@@ -595,20 +603,20 @@ textarea {
 }
 
 .totop .go {
+    display: none;
     background: var(--primaryColor);
     color: var(--colorBlack);
     padding: 7px 10px;
     font-size: 25px;
     font-weight: 600;
-    display: none;
     border: none;
     border-radius: 5px;
-    transition: .8s ease-out;
+    transform: translateX(-10px);
 }
 
 .totop .go:hover{
-    opacity: 0.7;
-    transition: .8s;
+    background-color: var(--grayColor);
+    color: var(--colorWhite);
 }
 
 .totop .go.show {
