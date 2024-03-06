@@ -464,7 +464,7 @@ textarea {
     list-style: none;
 }
 
-.nav .links li .nav-link {
+.nav .links li a {
     text-decoration: none;
     padding: 0 20px;
     color: var(--colorWhite);
@@ -476,7 +476,15 @@ textarea {
     transition: color .4s ease-in-out;
 }
 
-.nav .links li .nav-link:hover {
+.nav .links li a.active::before {
+    color: var(--primaryColor);
+}
+
+.nav .links li a:hover {
+    color: var(--primaryColor);
+}
+
+.nav .links li a.active {
     color: var(--primaryColor);
 }
 
@@ -600,6 +608,7 @@ textarea {
     position: fixed;
     bottom: 50px;
     right: 50px;
+    z-index: 7;
 }
 
 .totop .go {
@@ -786,11 +795,11 @@ textarea {
 
 /* ============================= PROJECTS STYLES ============================= */
 .projects {
-    padding-top: -10rem;
+    padding-top: 100px;
 }
 
 .project {
-    padding-top: 100px;
+    padding-top: 40px;
     position: relative;
     cursor: pointer;
     overflow: hidden;

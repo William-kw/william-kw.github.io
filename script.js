@@ -1,7 +1,8 @@
 const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   navLinkElement = document.querySelector(".nav .links"),
   toggleContactRightBarMenu = document.querySelector(".nav .toggle-contact-right-bar"),
-  navLinks = document.querySelectorAll(".nav .links .nav-link"),
+  navLinks = document.querySelectorAll(".nav .links a"),
+  sections = document.querySelectorAll("section"),
   contactRightBar = document.querySelector(".contact-right-bar"),
   closeContact = document.querySelector(".contact-right-bar .close-contact"),
   contactOverlay = document.querySelector(".contact-overlay"),
@@ -14,9 +15,9 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   inputs = [...form.querySelectorAll(".input")],
   btnSend = form.querySelector(".envoyer");
 
-  // contact form check and send 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault()
+// contact form check and send 
+form.addEventListener("submit", (e) => {
+  e.preventDefault()
   inputs.forEach(input => {
     if (input.value.trim() === "") {
       input.classList.toggle("danger")
@@ -24,7 +25,7 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
       btnSend.onclick = () => {
         let formdata = new FormData(form)
         let xhr = new XMLHttpRequest()
-        xhr.open("POST", "/send.php", true) 
+        xhr.open("POST", "/send.php", true)
         xhr.onload = () => {
           if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
@@ -43,6 +44,7 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
     }
   })
 })
+
 // btnSend.disabled = true
 // inputs.forEach(input => {
 //   input.addEventListener("input", checkValue)
@@ -72,8 +74,23 @@ function indicatorAnimation() {
   }
 }
 
-// go to top 
+// go to top and change links
 window.onscroll = () => {
+  // change links 
+  sections.forEach(section => {
+    let top = window.scrollY
+    let offset = section.offsetTop - 300
+    let height = section.offsetHeight
+    let id = section.getAttribute("id")
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach(link => {
+        link.classList.remove("active")
+        document.querySelector(".navbar .nav .links a[href*=" + id + "]").classList.add("active")
+      })
+    }
+  })
+
+  // go to top 
   go.classList.toggle("show", window.scrollY > (banner.offsetHeight / 2))
 }
 
