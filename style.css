@@ -14,7 +14,7 @@
 * {
     margin: 0;
     padding: 0;
-    text-decoration: none; 
+    text-decoration: none;
     list-style: none;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
@@ -531,7 +531,7 @@ textarea {
     transform: translateX(-10px);
 }
 
-.totop .go:hover{
+.totop .go:hover {
     background-color: var(--grayColor);
     color: var(--colorWhite);
 }
@@ -539,6 +539,7 @@ textarea {
 .totop .go.show {
     display: block;
 }
+
 /* ============================= BANNER STYLE ============================= */
 
 .banner {
@@ -570,11 +571,11 @@ textarea {
     transition: all .3s ease-in-out;
 }
 
-.banner p{
+.banner p {
     margin-top: 20px;
 }
 
-.banner .social-media{
+.banner .social-media {
     margin-top: 30px;
 }
 
@@ -593,13 +594,13 @@ textarea {
     border-radius: 50%;
 }
 
-.banner .social-media a:hover, 
+.banner .social-media a:hover,
 .banner .btn-container a:hover {
     background-color: var(--grayColor);
     color: var(--colorWhite);
 }
 
-.banner .btn-container a{
+.banner .btn-container a {
     color: var(--colorBlack);
 }
 
@@ -748,8 +749,12 @@ textarea {
 }
 
 /* ============================= TESTIMONIALS STYLES ============================= */
+.testimonial {
+    background: var(--grayColor);
+}
+
 .client {
-    border: 2px solid var(--grayColor);
+    border: 2px solid var(--bodyColor);
     padding: 30px;
     border-radius: 5px;
     position: relative;
@@ -758,10 +763,11 @@ textarea {
 .client .client-img {
     position: absolute;
     right: 40px;
-    top: -40px;
+    top: -50px;
 }
 
 .client .client-img img {
+    border: 10px solid var(--grayColor);
     border-radius: 50%;
 }
 
