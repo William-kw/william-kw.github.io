@@ -18,31 +18,26 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
 // contact form check and send 
 form.addEventListener("submit", (e) => {
   e.preventDefault()
-  inputs.forEach(input => {
-    if (input.value.trim() === "") {
-      input.classList.toggle("danger")
-    } else {
-      btnSend.onclick = () => {
-        let formdata = new FormData(form)
-        let xhr = new XMLHttpRequest()
-        xhr.open("POST", "/send.php", true)
-        xhr.onload = () => {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
-              let data = xhr.response
-              if (data === "succes") {
-                btnSend.classList.add("flex", "items-center")
-                btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-40'></i>"
-              } else {
-                input.classList.toggle("danger")
-              }
-            }
-          }
+  btnSend.onclick = () => {
+    let formdata = new FormData(form)
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "/send.php", true)
+    xhr.onload = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          let data = xhr.response
+          console.log(data)
+          // if (data === "succes") {
+          //   btnSend.classList.add("flex", "items-center")
+          //   btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-40'></i>"
+          // } else {
+          //   input.classList.toggle("danger")
+          // }
         }
-        xhr.send(formdata)
       }
     }
-  })
+    xhr.send(formdata)
+  }
 })
 
 // btnSend.disabled = true
@@ -85,7 +80,8 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       navLinks.forEach(link => {
         link.classList.remove("active")
-        document.querySelector(".navbar .nav .links a[href*=" + id + "]").classList.add("active")
+        let a = document.querySelector(".navbar .nav .links a[href*=" + id + "]")
+        a.classList.add("active")
       })
     }
   })
@@ -101,15 +97,6 @@ toggleLinksMenu.addEventListener("click", toggleNav);
 navLinks.forEach((link) => {
   link.addEventListener("click", toggleNav);
 });
-
-// open contact right bar
-toggleContactRightBarMenu.addEventListener("click", toggleContact);
-
-// close contact right bar in close btn
-closeContact.addEventListener("click", toggleContact);
-
-// close contact right bar in overlay
-contactOverlay.addEventListener("click", toggleContact);
 
 // toggle navbar
 function toggleNav() {
