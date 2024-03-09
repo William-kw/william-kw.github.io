@@ -81,8 +81,7 @@ window.onscroll = () => {
     if (top >= offset && top < offset + height) {
       navLinks.forEach(link => {
         link.classList.remove("active")
-        let a = document.querySelector(".navbar .nav .links a[href*=" + id + "]")
-        a.classList.add("active")
+        document.querySelector(".navbar .nav .links a[href*=" + id + "]").classList.add("active")
       })
     }
   })
@@ -90,6 +89,25 @@ window.onscroll = () => {
   // go to top 
   go.classList.toggle("show", window.scrollY > (banner.offsetHeight / 2))
 }
+
+// swipper
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 150,
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 
 // toggle nav links
 toggleLinksMenu.addEventListener("click", toggleNav);
@@ -109,7 +127,7 @@ function toggleNav() {
 window.addEventListener("load", () => {
   setTimeout(() => {
     loading.classList.toggle("hide");
-  }, 100);
+  }, 1000);
 });
 
 

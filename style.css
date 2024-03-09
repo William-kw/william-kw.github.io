@@ -421,6 +421,7 @@ textarea {
         transform: scale(1);
         opacity: 0.5;
     }
+
     100% {
         transform: scale(1.3);
         opacity: 1;
@@ -776,10 +777,28 @@ textarea {
     background: var(--grayColor);
 }
 
+.testimonial .swiper {
+    padding: 100px 90px;
+    overflow: hidden;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.testimonial .swiper .swiper-wrapper .swiper-slide {
+    width: 400px;
+    margin-bottom: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .client {
     border: 2px solid var(--primaryColor);
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 10px;
     position: relative;
 }
 
@@ -977,6 +996,11 @@ textarea {
     .banner .banner-heading {
         font-size: 55px;
     }
+
+    /* TESTIMONIAL RESPONSIVE  */
+    .testimonial .swiper {
+        padding-top: 150px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1047,6 +1071,10 @@ textarea {
     }
 
     /* TESTIMONIAL RESPONSIVE  */
+    .testimonial .swiper {
+        padding-top: 200px;
+    }
+
     .client .client-quota {
         display: none;
     }
