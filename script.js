@@ -13,7 +13,8 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   banner = document.querySelector(".banner"),
   form = document.querySelector(".form"),
   inputs = [...form.querySelectorAll(".input")],
-  btnSend = form.querySelector(".envoyer");
+  btnSend = form.querySelector(".envoyer"),
+  img = document.querySelector(".loading img");
 
 // contact form check and send 
 form.addEventListener("submit", (e) => {
@@ -104,18 +105,13 @@ function toggleNav() {
   toggleLinksMenu.children[0].classList.toggle("bx-x");
 }
 
-// toggle contact right bar
-function toggleContact() {
-  contactRightBar.classList.toggle("show-contact");
-  contactOverlay.classList.toggle("show");
-}
-
 // loading
 window.addEventListener("load", () => {
   setTimeout(() => {
     loading.classList.toggle("hide");
-  }, 1000);
+  }, 100);
 });
+
 
 // initialize AOS library
 AOS.init();
