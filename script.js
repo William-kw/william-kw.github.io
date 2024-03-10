@@ -11,44 +11,57 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
   scrollIndicator = document.querySelector(".scroll"),
   go = document.querySelector(".totop .go"),
   banner = document.querySelector(".banner"),
-  form = document.querySelector(".form"),
-  inputs = [...form.querySelectorAll(".input")],
+  form = document.querySelector("form"),
+  inputs = [...form.querySelectorAll("form .input")],
   btnSend = form.querySelector(".envoyer"),
   img = document.querySelector(".loading img");
 
 // contact form check and send 
 form.addEventListener("submit", (e) => {
   e.preventDefault()
-  btnSend.onclick = () => {
-    let formdata = new FormData(form)
-    let xhr = new XMLHttpRequest()
-    xhr.open("POST", "/send.php", true)
-    xhr.onload = () => {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          let data = xhr.response
-          console.log(data)
-          // if (data === "succes") {
-          //   btnSend.classList.add("flex", "items-center")
-          //   btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-40'></i>"
-          // } else {
-          //   input.classList.toggle("danger")
-          // }
+  let vide = false
+  let valide = false
+  inputs.forEach(input => {
+    if (input.value.trim() === "") {
+      input.classList.add("danger")
+      vide = true
+    } else {
+      input.classList.remove("danger")
+      vide = false
+    } 
+    if (!vide && input === inputs[1] && !validerEmail(input.value)) {
+      input.classList.add("danger")
+      valide = true
+    }
+    console.log(vide, valide)
+    if (!vide && valide) {
+      let formdata = new FormData(form)
+      let xhr = new XMLHttpRequest()
+      xhr.open("POST", "/send.php", true)
+      xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            let data = xhr.response
+            if (data === "succes") {
+              btnSend.classList.add("flex", "items-center")
+              btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-40'></i>"
+            }
+          }
         }
       }
+      xhr.send(formdata)
     }
-    xhr.send(formdata)
-  }
+  })
 })
 
-// btnSend.disabled = true
-// inputs.forEach(input => {
-//   input.addEventListener("input", checkValue)
-// })
-// function checkValue() {
-//   const empty = inputs.every(input => input.value !== "")
-//   btnSend.disabled = !empty
-// }
+function validerEmail(email) {
+  let reg = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
+  if (reg.test(email)) {
+    return true
+  } else {
+    return false
+  }
+}
 
 // scroll incator
 const obseveur = new IntersectionObserver(handleIntersect)
