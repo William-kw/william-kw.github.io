@@ -20,39 +20,52 @@ const toggleLinksMenu = document.querySelector(".nav .toggle-links"),
 form.addEventListener("submit", (e) => {
   e.preventDefault()
   let vide = false
-  let valide = false
+  let valide = true
   inputs.forEach(input => {
     if (input.value.trim() === "") {
       input.classList.add("danger")
       vide = true
     } else {
       input.classList.remove("danger")
-      vide = false
-    } 
+    }
     if (!vide && input === inputs[1] && !validerEmail(input.value)) {
       input.classList.add("danger")
-      valide = true
-    }
-    console.log(vide, valide)
-    if (!vide && valide) {
-      let formdata = new FormData(form)
-      let xhr = new XMLHttpRequest()
-      xhr.open("POST", "/send.php", true)
-      xhr.onload = () => {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            let data = xhr.response
-            if (data === "succes") {
-              btnSend.classList.add("flex", "items-center")
-              btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-40'></i>"
-            }
+      valide = false
+    } 
+  })
+  if (!vide && valide) {
+    let formdata = new FormData(form)
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "/send.php", true)
+    xhr.onload = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          let data = xhr.response
+          if (data === "succes") {
+            btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
+            btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-30'></i>"
+          } else {
+            btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
+            btnSend.innerHTML = "<i class='bx bx-error f-30'></i>"
           }
         }
       }
-      xhr.send(formdata)
     }
-  })
+    xhr.send(formdata)
+  } else {
+    btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
+    btnSend.innerHTML = "<i class='bx bx-error f-30'></i>"
+  }
 })
+const emailInput = inputs[1];
+
+emailInput.addEventListener("input", () => {
+  if (!validerEmail(emailInput.value.trim())) {
+    emailInput.classList.add("danger");
+  } else {
+    emailInput.classList.remove("danger");
+  }
+});
 
 function validerEmail(email) {
   let reg = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
