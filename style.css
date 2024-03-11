@@ -748,7 +748,7 @@ textarea {
 .project .project-img {
     width: 100%;
     height: 500px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .project .overlay {
@@ -772,7 +772,20 @@ textarea {
 }
 
 .project .overlay p {
-    font-size: 20px;
+    font-size: 17px;
+}
+
+.project .overlay .autres {
+    overflow-x: auto;
+}
+
+.project .overlay .autres::-webkit-scrollbar{
+    width: 0;
+}
+
+.project .overlay img {
+    width: 100px;
+    height: 60px;
 }
 
 .project:hover .overlay {
@@ -785,7 +798,7 @@ textarea {
 }
 
 .testimonial .swiper {
-    padding: 100px 90px;
+    padding: 150px 90px;
     overflow: hidden;
     height: 400px;
     margin-left: auto;
@@ -818,6 +831,9 @@ textarea {
 .client .client-img img {
     border: 10px solid var(--grayColor);
     border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
 }
 
 .client .client-stars i {
@@ -829,7 +845,7 @@ textarea {
 }
 
 .client .client-quota {
-    margin-left: 5px;
+    margin-left: 15px;
     padding-top: 15px;
 }
 
