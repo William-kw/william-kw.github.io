@@ -767,7 +767,7 @@ textarea {
 
 .project .overlay .line-green {
     height: 1px;
-    width: 70px;
+    width: 50px;
     background-color: var(--primaryColor);
 }
 
@@ -777,15 +777,22 @@ textarea {
 
 .project .overlay .autres {
     overflow-x: auto;
+    padding: 10px 0;
 }
 
 .project .overlay .autres::-webkit-scrollbar{
     width: 0;
+    height: 0;
 }
 
 .project .overlay img {
     width: 100px;
     height: 60px;
+}
+
+.project .overlay img:hover {
+    transform: scale(1.1);
+    transition: 0.8s;
 }
 
 .project:hover .overlay {
@@ -910,6 +917,14 @@ textarea {
 }
 
 /* ============================= @MEDIA QUERY | RESPONSIVE STYLE ============================= */
+@media (max-width: 1300px) {
+    .banner {
+        padding-top: 100px;
+    }
+    .text-col .banner-heading .moi {
+        font-size: 50px;
+    }
+}
 
 @media (max-width: 1115px) {
 
@@ -924,10 +939,11 @@ textarea {
 
     /* BANNER RESPONSIVE */
     .banner {
-        padding-top: 130px;
+        padding-top: 150px;
     }
 
     .banner .row .text-col {
+        margin-top: 50px;
         width: 100%;
     }
 }
@@ -940,7 +956,15 @@ textarea {
     }
 
     .banner {
-        padding-top: 130px;
+        padding-top: 150px;
+    }
+
+    .banner .row .text-col {
+        margin-top: 50px;
+    }
+
+    .text-col .banner-heading .moi {
+        font-size: 40px;
     }
 
     .col-3 {
@@ -1035,7 +1059,15 @@ textarea {
     }
 
     .banner {
-        padding-top: 130px;
+        padding-top: 150px;
+    }
+
+    .banner .row .text-col {
+        margin-top: 50px;
+    }
+    
+    .text-col .banner-heading .moi {
+        font-size: 35px;
     }
 
     .banner .btn-container button {
@@ -1094,8 +1126,9 @@ textarea {
     }
 
     /* TESTIMONIAL RESPONSIVE  */
-    .testimonial .swiper {
+    .testimonial .mySwiper {
         padding-top: 200px;
+        margin: 20px 0;
     }
 
     .client .client-quota {

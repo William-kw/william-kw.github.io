@@ -46,7 +46,7 @@ form.addEventListener("submit", (e) => {
             btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-30'></i>"
           } else {
             btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
-            btnSend.innerHTML = "<i class='bx bx-error f-30'></i>"
+            btnSend.innerHTML = data + "<i class='bx bx-error f-30'></i>"
           }
         }
       }
@@ -125,10 +125,10 @@ const swiper = new Swiper(".mySwiper", {
     el: ".swiper-pagination",
     clickable: true,
   },
-  // autoplay: {
-  //   delay: 3000,
-  //   disableOnInteraction: false
-  // },
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false
+  },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",

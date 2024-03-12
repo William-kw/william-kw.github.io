@@ -12,12 +12,9 @@ $corpsMail .= "Email: $email\n";
 $corpsMail .= "Téléphone: $tel\n\n";
 $corpsMail .= "Message:\n$message";
 
-$headers = "From: $email\r\n";
-$headers .= "Reply-To: $email\r\n";
+$headers = "De: $email\r\n";
 
 $send = mail($destinataire, $sujet, $corpsMail, $headers);
 if ($send) {
     echo "succes";
-} else {
-    echo "error";
 }
