@@ -153,7 +153,7 @@ function toggleNav() {
 window.addEventListener("load", () => {
   setTimeout(() => {
     loading.classList.toggle("hide");
-  }, 1000);
+  }, 3000);
 });
 
 
