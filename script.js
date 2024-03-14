@@ -36,7 +36,7 @@ form.addEventListener("submit", (e) => {
   if (!vide && valide) {
     let formdata = new FormData(form)
     let xhr = new XMLHttpRequest()
-    xhr.open("POST", "/send.php", true)
+    xhr.open("POST", "./php/send.php", true)
     xhr.onload = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
