@@ -831,7 +831,7 @@ textarea {
 
 .client .client-img {
     position: absolute;
-    right: 40px;
+    right: 80px;
     top: -50px;
 }
 
@@ -848,6 +848,7 @@ textarea {
 }
 
 .client h2 {
+    text-align: left;
     margin-bottom: 0px;
 }
 
