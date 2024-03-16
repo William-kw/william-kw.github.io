@@ -3,7 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/autoload.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
 
 $nom = htmlspecialchars($_POST["nom"]);
 $email = htmlspecialchars($_POST["email"]);
@@ -12,9 +14,9 @@ $message = htmlspecialchars($_POST["message"]);
 
 $sujet = "Nouveau mail de $nom";
 
-$corpsMail = "Nom: $nom\n";
-$corpsMail .= "Email: $email\n";
-$corpsMail .= "Téléphone: $tel\n\n";
+$corpsMail = "Nom: $nom\n<br>";
+$corpsMail .= "Email: $email\n<br>";
+$corpsMail .= "Téléphone: $tel\n\n<br>";
 $corpsMail .= "Message:\n$message";
 
 $mail = new PHPMailer(true);

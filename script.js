@@ -46,7 +46,7 @@ form.addEventListener("submit", (e) => {
             btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-30'></i>"
           } else {
             btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
-            btnSend.innerHTML = data + "<i class='bx bx-error f-30'></i>"
+            btnSend.innerHTML = "<i class='bx bx-error f-30'></i>"
           }
         }
       }
