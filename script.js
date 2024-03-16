@@ -31,23 +31,19 @@ form.addEventListener("submit", (e) => {
     if (!vide && input === inputs[1] && !validerEmail(input.value)) {
       input.classList.add("danger")
       valide = false
-    } 
+    }
   })
   if (!vide && valide) {
+    btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
+    btnSend.innerHTML = "En cours <i class='bx bx-loader-alt bx-spin f-25'></i>"
     let formdata = new FormData(form)
     let xhr = new XMLHttpRequest()
     xhr.open("POST", "./php/send.php", true)
     xhr.onload = () => {
       if (xhr.readyState === XMLHttpRequest.DONE) {
         if (xhr.status === 200) {
-          let data = xhr.response
-          if (data === "succes") {
-            btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
-            btnSend.innerHTML = "Mail envoyé <i class='bx bx-check-double f-30'></i>"
-          } else {
-            btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
-            btnSend.innerHTML = "<i class='bx bx-error f-30'></i>"
-          }
+          btnSend.innerHTML = "Envoyé <i class='bx bx-check-double f-30'></i>"
+          form.reset()
         }
       }
     }
