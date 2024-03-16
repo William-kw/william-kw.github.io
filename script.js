@@ -35,7 +35,7 @@ form.addEventListener("submit", (e) => {
   })
   if (!vide && valide) {
     btnSend.classList.add("flex", "items-center", "gap-10", "fs-20")
-    btnSend.innerHTML = "En cours <i class='bx bx-loader-alt bx-spin f-25'></i>"
+    btnSend.innerHTML = "Envoie <i class='bx bx-loader-alt bx-spin f-25'></i>"
     let formdata = new FormData(form)
     let xhr = new XMLHttpRequest()
     xhr.open("POST", "./php/send.php", true)
