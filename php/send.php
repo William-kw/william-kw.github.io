@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\SMTP;
 
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/OAuthInfo.php';
 
 $nom = htmlspecialchars($_POST["nom"]);
 $email = htmlspecialchars($_POST["email"]);
@@ -22,12 +23,12 @@ $mail = new PHPMailer(true);
 
 $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 $mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = $host;
 $mail->SMTPAuth = true;
-$mail->Username = 'williamkenfack4@gmail.com';
-$mail->Password = 'dkniadggonyofmlr';
+$mail->Username = $user;
+$mail->Password = $pwd;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
+$mail->Port = $port;
 
 $mail->setFrom($email, $nom);
 $mail->addAddress('williamkenfack4@gmail.com', 'William-kw');
