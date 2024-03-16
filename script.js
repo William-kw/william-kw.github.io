@@ -122,7 +122,7 @@ const swiper = new Swiper(".mySwiper", {
     clickable: true,
   },
   autoplay: {
-    delay: 3500,
+    delay: 4000,
     disableOnInteraction: false
   },
   navigation: {
@@ -151,7 +151,6 @@ window.addEventListener("load", () => {
     loading.classList.toggle("hide");
   }, 3000);
 });
-
 
 // initialize AOS library
 AOS.init();
