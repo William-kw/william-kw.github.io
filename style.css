@@ -563,7 +563,6 @@ textarea {
     font-weight: 600;
     border: none;
     border-radius: 5px;
-    transform: translateX(-10px);
 }
 
 .totop .go:hover {
