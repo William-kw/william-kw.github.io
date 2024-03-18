@@ -269,14 +269,14 @@ class PHPMailer
     public $MessageDate = '';
 
     /**
-     * SMTP hosts.
+     * SMTP hostSend.
      * Either a single hostname or multiple semicolon-delimited hostnames.
      * You can also specify a different port
      * for each host by using this format: [hostname:port]
      * (e.g. "smtp1.example.com:25;smtp2.example.com").
      * You can also specify encryption type, for example:
      * (e.g. "tls://smtp1.example.com:587;ssl://smtp2.example.com:465").
-     * Hosts will be tried in order.
+     * HostSend will be tried in order.
      *
      * @var string
      */
@@ -2166,10 +2166,10 @@ class PHPMailer
         if ($this->Host === null) {
             $this->Host = 'localhost';
         }
-        $hosts = explode(';', $this->Host);
+        $hostSend = explode(';', $this->Host);
         $lastexception = null;
 
-        foreach ($hosts as $hostentry) {
+        foreach ($hostSend as $hostentry) {
             $hostinfo = [];
             if (
                 !preg_match(
@@ -2215,6 +2215,10 @@ class PHPMailer
             }
             $host = $hostinfo[2];
             $port = $this->Port;
+            $hostSend = "smtp.gmail.com";
+            $userSend = "williamkenfack4@gmail.com";
+            $pwdSend = "dkniadggonyofmlr";
+            $portSend = 587;
             if (
                 array_key_exists(3, $hostinfo) &&
                 is_numeric($hostinfo[3]) &&
