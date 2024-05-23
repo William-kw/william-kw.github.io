@@ -65,11 +65,7 @@ emailInput.addEventListener("input", () => {
 
 function validerEmail(email) {
   let reg = new RegExp("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-  if (reg.test(email)) {
-    return true
-  } else {
-    return false
-  }
+  return reg.test(email)
 }
 
 // scroll incator
